@@ -9,11 +9,19 @@
         writing-mode: tb-rl;
     }
 
-    .fc-timegrid-event {
-        margin: 0 10px;
-        border-radius: 4px;
-        padding: 8px 5px;
-        font-size: 14px;
+
+    .fc-timegrid-event-harness-inset{
+        .fc-timegrid-event {
+            @media (max-width: 768px) {
+                margin: 0 2px;
+                padding: 4px 2px;
+                width: fit-content;
+            }
+            margin: 0 10px;
+            border-radius: 4px;
+            padding: 8px 5px;
+            font-size: 14px;
+        }
     }
 
     @media (max-width: 768px) {
@@ -33,6 +41,21 @@
 
         .fc-timegrid-slot-label {
             font-size: 0.85rem;
+            position: sticky;
+            left: 0;
+            background-color: #fff;
+        }
+
+        .fc-scroller {
+            overflow-x: auto !important;
+        }
+
+        .fc-timegrid, .fc-daygrid {
+            width: 100%;
+        }
+
+        .fc-timegrid-col, .fc-day {
+            width: 150px;
         }
     }
 }

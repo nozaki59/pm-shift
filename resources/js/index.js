@@ -6,7 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import jaLocale from '@fullcalendar/core/locales/ja';
 import axios from 'axios';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
 
     // FullCalendarの初期化
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         firstDay: 1, // 週の最初を月曜日に設定
         weekends: false, // 土日を非表示
         locale: jaLocale, // 日本語化
-        events: '/api/shifts',  // getShiftsメソッドのエンドポイント
+        events: '/api/shifts', // getShiftsメソッドのエンドポイント
         eventDisplay: 'block', // イベントをブロック要素として表示
         displayEventTime: false, // イベントの時間を非表示
         allDaySlot: false, // 終日スロットを非表示
@@ -27,9 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
         eventTimeFormat: {
             hour: '2-digit',
             minute: '2-digit',
-            meridiem: false
+            meridiem: false,
         },
     });
 
     calendar.render();
+
+    const fcColHeader = document.querySelector('.fc-col-header').clientWidth;
+    const fcBody = document.querySelector('.fc-timegrid-body table');
+    fcBody.style.width = `${fcColHeader}px`;
+
+    // 横スクロール同期処理
+    const header = document.querySelector('.fc-scrollgrid-section-header .fc-scroller');
+    const content = document.querySelector('.fc-scrollgrid-section-body .fc-scroller');
+
+    if (header && content) {
+        content.addEventListener('scroll', function () {
+            header.scrollLeft = content.scrollLeft;
+        });
+
+        header.addEventListener('scroll', function () {
+            content.scrollLeft = header.scrollLeft;
+        });
+    }
 });

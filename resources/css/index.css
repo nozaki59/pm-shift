@@ -7,11 +7,18 @@
 #calendar .fc-event-title {
   writing-mode: tb-rl;
 }
-#calendar .fc-timegrid-event {
+#calendar .fc-timegrid-event-harness-inset .fc-timegrid-event {
   margin: 0 10px;
   border-radius: 4px;
   padding: 8px 5px;
   font-size: 14px;
+}
+@media (max-width: 768px) {
+  #calendar .fc-timegrid-event-harness-inset .fc-timegrid-event {
+    margin: 0 2px;
+    padding: 4px 2px;
+    width: fit-content;
+  }
 }
 @media (max-width: 768px) {
   #calendar .fc-toolbar-chunk .fc-toolbar-title {
@@ -25,6 +32,18 @@
   }
   #calendar .fc-timegrid-slot-label {
     font-size: 0.85rem;
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+  }
+  #calendar .fc-scroller {
+    overflow-x: auto !important;
+  }
+  #calendar .fc-timegrid, #calendar .fc-daygrid {
+    width: 100%;
+  }
+  #calendar .fc-timegrid-col, #calendar .fc-day {
+    width: 150px;
   }
 }
 
