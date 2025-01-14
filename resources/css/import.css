@@ -1,11 +1,5 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "/resources/css/app.css";
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
-.fc-event {
-  width: fit-content;
-  margin: 2px auto !important;
-  border-radius: 4px;
-  padding: 2px 5px;
-}
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=import.css.map */

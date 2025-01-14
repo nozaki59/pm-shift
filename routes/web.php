@@ -2,10 +2,20 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShiftController;
 use Illuminate\Support\Facades\Route;
 
 // TOPページ
 Route::get('/', [MainController::class, 'Index'])->name('Index');
+
+// import
+Route::get('/import', function () {
+    return view('import');
+});
+Route::post('/import', [ShiftController::class, 'import'])->name('shifts.import');
+
+// シフトデータの取得
+Route::get('/api/shifts', [MainController::class, 'getShifts']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
