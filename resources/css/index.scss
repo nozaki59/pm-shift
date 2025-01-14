@@ -1,8 +1,38 @@
 @import "common";
 
-.fc-event {
-    width: fit-content;
-    margin: 2px auto !important;
-    border-radius: 4px;
-    padding: 2px 5px;
+#calendar {
+    .fc-event {
+        width: fit-content;
+    }
+
+    .fc-event-title {
+        writing-mode: tb-rl;
+    }
+
+    .fc-timegrid-event {
+        margin: 0 10px;
+        border-radius: 4px;
+        padding: 8px 5px;
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        .fc-toolbar-chunk {
+            .fc-toolbar-title {
+                font-size: 1rem;
+            }
+
+            button {
+                font-size: 0.8rem;
+            }
+        }
+
+        .fc-col-header {
+            font-size: 0.8rem;
+        }
+
+        .fc-timegrid-slot-label {
+            font-size: 0.85rem;
+        }
+    }
 }

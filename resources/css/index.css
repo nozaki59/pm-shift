@@ -1,11 +1,31 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "/resources/css/app.css";
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
-.fc-event {
+#calendar .fc-event {
   width: fit-content;
-  margin: 2px auto !important;
+}
+#calendar .fc-event-title {
+  writing-mode: tb-rl;
+}
+#calendar .fc-timegrid-event {
+  margin: 0 10px;
   border-radius: 4px;
-  padding: 2px 5px;
+  padding: 8px 5px;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  #calendar .fc-toolbar-chunk .fc-toolbar-title {
+    font-size: 1rem;
+  }
+  #calendar .fc-toolbar-chunk button {
+    font-size: 0.8rem;
+  }
+  #calendar .fc-col-header {
+    font-size: 0.8rem;
+  }
+  #calendar .fc-timegrid-slot-label {
+    font-size: 0.85rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

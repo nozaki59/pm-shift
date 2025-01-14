@@ -21,21 +21,18 @@ class MainController extends Controller
 
     public function getShifts()
     {
-        $shifts = Shift::with('employee')->get();
+        $shifts = Shift::with('employee')
+            ->whereNotIn('shift_type', ['公休', '有給']) // 公休や有給を除外
+            ->get();
 
         return response()->json($shifts->map(function ($shift) {
             if ($shift->employee) {
                 return [
-                    'title' => $shift->employee->name . ' (' . substr($shift->start_time, 0, 5) . ' - ' . substr($shift->end_time, 0, 5) . ')',
+                    'title' => $shift->employee->name,
                     'start' => $shift->shift_date . 'T' . $shift->start_time,
                     'end' => $shift->shift_date . 'T' . $shift->end_time,
                 ];
             } else {
-                \Log::warning('Shift with missing employee:', [
-                    'shift_id' => $shift->id,
-                    'employee_id' => $shift->employee_id
-                ]);
-
                 return [
                     'title' => '未割り当て (' . substr($shift->start_time, 0, 5) . ' - ' . substr($shift->end_time, 0, 5) . ')',
                     'start' => $shift->shift_date . 'T' . $shift->start_time,
