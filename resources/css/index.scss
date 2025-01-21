@@ -1,8 +1,8 @@
 @import "common";
 
 #calendar {
-    .fc-event {
-        width: fit-content;
+    .fc-timegrid-event {
+        //width: fit-content;
     }
 
     .fc-event-title {
@@ -15,12 +15,13 @@
             @media (max-width: 768px) {
                 margin: 0 2px;
                 padding: 4px 2px;
-                width: fit-content;
+                //width: fit-content;
             }
             margin: 0 10px;
             border-radius: 4px;
             padding: 8px 5px;
             font-size: 14px;
+            justify-self: center;
         }
     }
 
@@ -39,15 +40,20 @@
             font-size: 0.8rem;
         }
 
-        .fc-timegrid-slot-label {
-            font-size: 0.85rem;
-            position: sticky;
-            left: 0;
-            background-color: #fff;
+        .fc-timegrid-slot-label-cushion {
+            opacity: 0;
         }
 
         .fc-scroller {
             overflow-x: auto !important;
+            /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+            -ms-overflow-style: none;
+            /*Firefoxへの対応*/
+            scrollbar-width: none;
+            /*Google Chrome、Safariへの対応*/
+            ::-webkit-scrollbar{
+                display: none;
+            }
         }
 
         .fc-timegrid, .fc-daygrid {

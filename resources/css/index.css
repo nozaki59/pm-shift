@@ -1,9 +1,7 @@
+@charset "UTF-8";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 @import "/resources/css/app.css";
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
-#calendar .fc-event {
-  width: fit-content;
-}
 #calendar .fc-event-title {
   writing-mode: tb-rl;
 }
@@ -12,12 +10,12 @@
   border-radius: 4px;
   padding: 8px 5px;
   font-size: 14px;
+  justify-self: center;
 }
 @media (max-width: 768px) {
   #calendar .fc-timegrid-event-harness-inset .fc-timegrid-event {
     margin: 0 2px;
     padding: 4px 2px;
-    width: fit-content;
   }
 }
 @media (max-width: 768px) {
@@ -30,14 +28,19 @@
   #calendar .fc-col-header {
     font-size: 0.8rem;
   }
-  #calendar .fc-timegrid-slot-label {
-    font-size: 0.85rem;
-    position: sticky;
-    left: 0;
-    background-color: #fff;
+  #calendar .fc-timegrid-slot-label-cushion {
+    opacity: 0;
   }
   #calendar .fc-scroller {
     overflow-x: auto !important;
+    /*IE(Internet Explorer)・Microsoft Edgeへの対応*/
+    -ms-overflow-style: none;
+    /*Firefoxへの対応*/
+    scrollbar-width: none;
+    /*Google Chrome、Safariへの対応*/
+  }
+  #calendar .fc-scroller ::-webkit-scrollbar {
+    display: none;
   }
   #calendar .fc-timegrid, #calendar .fc-daygrid {
     width: 100%;

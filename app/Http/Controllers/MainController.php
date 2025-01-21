@@ -22,7 +22,7 @@ class MainController extends Controller
     public function getShifts()
     {
         $shifts = Shift::with('employee')
-            ->whereNotIn('shift_type', ['公休', '有給']) // 公休や有給を除外
+            ->where('shift_type', 25) // 公休や有給を除外
             ->get();
 
         return response()->json($shifts->map(function ($shift) {

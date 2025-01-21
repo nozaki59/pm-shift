@@ -6,6 +6,11 @@
                 <input type="file" name="file" required>
                 <button type="submit" class="btn shadow px-3 py-2 bg-gray-300 max-md:mt-10">インポート</button>
             </form>
+            @if(session('success'))
+                <div class="fixed top-0 right-0 bg-green-500 text-white p-2">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
     </div>
 </x-template>
