@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap");
 #calendar .fc-event-title {
   writing-mode: tb-rl;
+  font-weight: bold;
 }
 #calendar .fc-timegrid-event-harness-inset .fc-timegrid-event {
   margin: 0 10px;
